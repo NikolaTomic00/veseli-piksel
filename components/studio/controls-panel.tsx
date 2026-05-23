@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import Link from "next/link";
 import {
   ChevronDownIcon,
@@ -36,6 +38,9 @@ export function StudioControlsPanel() {
     selectStyle,
   } = useStudioWorkbench();
 
+
+  const [selectedCategory, setSelectedCategory] = useState("");
+
   return (
     <section className="studio-panel rounded-[2rem] border p-5 sm:p-7">
       <div className="flex items-start gap-4">
@@ -71,10 +76,79 @@ export function StudioControlsPanel() {
         ) : null}
       </div>
 
+
+      <div className="mt-7">
+        <p className="text-[1.05rem] font-semibold text-foreground sm:text-[1.2rem]">
+          1. Izaberi stil
+        </p>
+
+        <div className="mt-4 relative">
+          <select
+            value={selectedCategory}
+            onChange={(e) => {
+              setSelectedCategory(e.target.value);
+              selectStyle("");
+            }}
+            className={cn(
+              buttonVariants({ variant: "outline" }),
+              "h-auto w-full appearance-none rounded-[1.2rem] border-border/35 bg-background/25 px-4 py-3 pr-11 font-medium focus:border-primary",
+            )}
+          >
+            <option value="" className="bg-background text-foreground">
+              -- Izaberi kategoriju --
+            </option>
+            <option
+              value="animirani-karakteri"
+              className="bg-background text-foreground"
+            >
+              Animirani Karakteri
+            </option>
+            <option
+              value="profesionalna-profilna-slika"
+              className="bg-background text-foreground"
+            >
+              Profesionalna Profilna Slika
+            </option>
+          </select>
+
+          <ChevronDownIcon className="pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+        </div>
+
+        {selectedCategory === "animirani-karakteri" && (
+          <div className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            {stylePresets.map((preset) => (
+              <StylePresetCard
+                key={preset.slug}
+                isSelected={preset.slug === selectedStyle}
+                label={preset.label}
+                onSelect={() => selectStyle(preset.slug)}
+                thumbnailAlt={preset.thumbnailAlt}
+                thumbnailPath={preset.thumbnailPath}
+              />
+            ))}
+          </div>
+        )}
+
+        {selectedCategory === "profesionalna-profilna-slika" && (
+          <div className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            {stylePresets.map((preset) => (
+              <StylePresetCard
+                key={preset.slug}
+                isSelected={preset.slug === selectedStyle}
+                label={preset.label}
+                onSelect={() => selectStyle(preset.slug)}
+                thumbnailAlt={preset.thumbnailAlt}
+                thumbnailPath={preset.thumbnailPath}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+
       <div className="studio-panel-inset mt-7 rounded-[1.8rem] border p-5 sm:p-6">
         <div className="flex items-center justify-between gap-4">
           <p className="text-[1.05rem] font-semibold text-foreground sm:text-[1.2rem]">
-            1. Otpremite sliku
+            2. Otpremite sliku
           </p>
 
           {file ? (
@@ -120,25 +194,6 @@ export function StudioControlsPanel() {
                 : "Molim vas izaberite JPG, PNG ili WEBP format slike"}
             </p>
           </div>
-        </div>
-      </div>
-
-      <div className="mt-7">
-        <p className="text-[1.05rem] font-semibold text-foreground sm:text-[1.2rem]">
-          2. Izaberi stil
-        </p>
-
-        <div className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          {stylePresets.map((preset) => (
-            <StylePresetCard
-              key={preset.slug}
-              isSelected={preset.slug === selectedStyle}
-              label={preset.label}
-              onSelect={() => selectStyle(preset.slug)}
-              thumbnailAlt={preset.thumbnailAlt}
-              thumbnailPath={preset.thumbnailPath}
-            />
-          ))}
         </div>
       </div>
 

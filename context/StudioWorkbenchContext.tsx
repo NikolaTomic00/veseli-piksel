@@ -92,7 +92,7 @@ function useStudioWorkbenchValue({
   initialHistory,
   initialQuota,
 }: StudioWorkbenchProps): StudioWorkbenchContextValue {
-  const [selectedStyle, setSelectedStyle] = useState(stylePresets[0]?.slug ?? "");
+  const [selectedStyle, setSelectedStyle] = useState("");
   const [selectedModel, setSelectedModel] = useState<OpenAiImageModel>(openAiImageModels[0]);
   const [file, setFile] = useState<File | null>(null);
   const [uploadedSource, setUploadedSource] = useState<UploadedSource | null>(null);
@@ -122,7 +122,7 @@ function useStudioWorkbenchValue({
   const resultPreview = result ? `data:${result.mimeType};base64,${result.imageBase64}` : null;
   const selectedPreset =
     stylePresets.find((preset) => preset.slug === selectedStyle) ?? stylePresets[0];
-  const isGenerateDisabled = isLoading || !file || quota.remaining <= 0;
+  const isGenerateDisabled = isLoading || !file || !selectedStyle || quota.remaining <= 0;
 
   function resetGenerationState() {
     setResult(null);
