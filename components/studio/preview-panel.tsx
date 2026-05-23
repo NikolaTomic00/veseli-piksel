@@ -60,13 +60,17 @@ export function StudioPreviewPanel() {
                   isLoading={isLoading}
                   resultPreview={resultPreview}
                 />
-              ) : selectedStyle ? (
+              ) : selectedStyle && !sourcePreview ? (
                 <Image
                   src={selectedPreset.thumbnailPath}
                   alt={selectedPreset.thumbnailAlt}
                   fill
                   className="object-cover"
                 />
+              ) : selectedStyle ? (
+                <div className="flex h-full items-center justify-center p-4 text-center text-sm text-muted-foreground">
+                  Generišite i pogledajte rezultat
+                </div>
               ) : (
                 <div className="flex h-full items-center justify-center p-4 text-center text-sm text-muted-foreground">
                   Izaberite stil i generišite rezultat
