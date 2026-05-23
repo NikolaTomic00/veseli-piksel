@@ -13,6 +13,7 @@ export function StudioPreviewPanel() {
     openHistoryPreview,
     resultPreview,
     selectedPreset,
+    selectedStyle,
     sourcePreview,
   } = useStudioWorkbench();
 
@@ -52,12 +53,25 @@ export function StudioPreviewPanel() {
 
           <div className="pl-0 md:pl-6">
             <PreviewFrame label="Rezultat">
-              <ResultPreviewFrame
-                fallbackAlt={selectedPreset.thumbnailAlt}
-                fallbackSrc={selectedPreset.thumbnailPath}
-                isLoading={isLoading}
-                resultPreview={resultPreview}
-              />
+              {resultPreview || isLoading ? (
+                <ResultPreviewFrame
+                  fallbackAlt={selectedPreset.thumbnailAlt}
+                  fallbackSrc={selectedPreset.thumbnailPath}
+                  isLoading={isLoading}
+                  resultPreview={resultPreview}
+                />
+              ) : selectedStyle ? (
+                <Image
+                  src={selectedPreset.thumbnailPath}
+                  alt={selectedPreset.thumbnailAlt}
+                  fill
+                  className="object-cover"
+                />
+              ) : (
+                <div className="flex h-full items-center justify-center p-4 text-center text-sm text-muted-foreground">
+                  Izaberite stil i generišite rezultat
+                </div>
+              )}
             </PreviewFrame>
           </div>
         </div>

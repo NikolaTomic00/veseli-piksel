@@ -114,33 +114,20 @@ export function StudioControlsPanel() {
           <ChevronDownIcon className="pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
         </div>
 
-        {selectedCategory === "animirani-karakteri" && (
+        {selectedCategory && (
           <div className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {stylePresets.map((preset) => (
-              <StylePresetCard
-                key={preset.slug}
-                isSelected={preset.slug === selectedStyle}
-                label={preset.label}
-                onSelect={() => selectStyle(preset.slug)}
-                thumbnailAlt={preset.thumbnailAlt}
-                thumbnailPath={preset.thumbnailPath}
-              />
-            ))}
-          </div>
-        )}
-
-        {selectedCategory === "profesionalna-profilna-slika" && (
-          <div className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {stylePresets.map((preset) => (
-              <StylePresetCard
-                key={preset.slug}
-                isSelected={preset.slug === selectedStyle}
-                label={preset.label}
-                onSelect={() => selectStyle(preset.slug)}
-                thumbnailAlt={preset.thumbnailAlt}
-                thumbnailPath={preset.thumbnailPath}
-              />
-            ))}
+            {stylePresets
+              .filter((preset) => preset.category === selectedCategory)
+              .map((preset) => (
+                <StylePresetCard
+                  key={preset.slug}
+                  isSelected={preset.slug === selectedStyle}
+                  label={preset.label}
+                  onSelect={() => selectStyle(preset.slug)}
+                  thumbnailAlt={preset.thumbnailAlt}
+                  thumbnailPath={preset.thumbnailPath}
+                />
+              ))}
           </div>
         )}
       </div>
