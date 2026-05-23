@@ -1,9 +1,3 @@
-<h1 align="center">🎨 AI Image Generator SaaS – Next.js 2026 🚀</h1>
-
-![Demo App](/public/screenshot-for-readme.png)
-
----
-
 ## 🚀 Highlights
 
 - 🎨 AI Image Generation (powered by OpenAI)
