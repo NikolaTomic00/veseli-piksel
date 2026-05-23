@@ -1,5 +1,10 @@
 import Image from "next/image";
-import { CheckIcon, DownloadIcon, Loader2Icon, WandSparklesIcon } from "lucide-react";
+import {
+  CheckIcon,
+  DownloadIcon,
+  Loader2Icon,
+  WandSparklesIcon,
+} from "lucide-react";
 import type { ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -10,20 +15,28 @@ import { GenerationHistorySummaryItem } from "@/lib/types";
 const previewFrameClassName =
   "relative mt-5 aspect-[0.82] overflow-hidden rounded-[1.45rem] bg-background/28";
 
-export function GenerateButton({ disabled, isLoading }: { disabled: boolean; isLoading: boolean }) {
+export function GenerateButton({
+  disabled,
+  isLoading,
+}: {
+  disabled: boolean;
+  isLoading: boolean;
+}) {
   return (
     <Button
       type="submit"
       disabled={disabled}
-      className={cn("studio-primary-action rounded-full w-full py-5 mt-2 text-2xl")}
+      className={cn(
+        "studio-primary-action rounded-full w-full py-5 mt-2 text-2xl",
+      )}
     >
       {isLoading ? (
         <>
-          <Loader2Icon className="animate-spin size-5" /> Generating
+          <Loader2Icon className="animate-spin size-5" /> Generisanje
         </>
       ) : (
         <>
-          <WandSparklesIcon className="size-5" /> Generate
+          <WandSparklesIcon className="size-5" /> Generiši
         </>
       )}
     </Button>
@@ -78,10 +91,18 @@ export function StylePresetCard({
   );
 }
 
-export function PreviewFrame({ children, label }: { children: ReactNode; label: string }) {
+export function PreviewFrame({
+  children,
+  label,
+}: {
+  children: ReactNode;
+  label: string;
+}) {
   return (
     <>
-      <p className="caps-xl text-xs font-semibold uppercase text-muted-foreground">{label}</p>
+      <p className="caps-xl text-xs font-semibold uppercase text-muted-foreground">
+        {label}
+      </p>
       <div className={previewFrameClassName}>{children}</div>
     </>
   );
@@ -122,7 +143,9 @@ export function ResultPreviewFrame({
     );
   }
 
-  return <Image src={fallbackSrc} alt={fallbackAlt} fill className="object-cover" />;
+  return (
+    <Image src={fallbackSrc} alt={fallbackAlt} fill className="object-cover" />
+  );
 }
 
 export function HistoryCard({
@@ -163,7 +186,10 @@ export function HistoryCard({
           className="studio-pill rounded-full px-3 py-2 text-xs"
           aria-label="Download result"
           onClick={() => {
-            void downloadImageFromUrl(item.resultImageUrl, `${item.styleSlug}-result.png`);
+            void downloadImageFromUrl(
+              item.resultImageUrl,
+              `${item.styleSlug}-result.png`,
+            );
           }}
         >
           <DownloadIcon className="size-3.5" />

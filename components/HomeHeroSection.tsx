@@ -109,27 +109,19 @@ export function HomeHeroSection() {
           <div className="home-hero-ctas">
             <Show when="signed-out">
               <SignUpButton mode="modal" fallbackRedirectUrl="/studio">
-                <Button type="button" className="home-btn-hero-primary">
-                  Get Started Free
+                <Button type="button" className="home-btn-hero-primary py-5">
+                  Pоčni potpuno besplatno
                 </Button>
               </SignUpButton>
             </Show>
 
             <Show when="signed-in">
-              <Button asChild className="home-btn-hero-primary">
+              <Button asChild className="home-btn-hero-primary p-5">
                 <Link href="/studio" prefetch={false}>
                   Otvori Studio
                 </Link>
               </Button>
             </Show>
-
-            <Button
-              asChild
-              variant="ghost"
-              className="hero-pill home-btn-hero-ghost"
-            >
-              <a href="#how-it-works">Pogledajte demo (2min)</a>
-            </Button>
           </div>
         </div>
 

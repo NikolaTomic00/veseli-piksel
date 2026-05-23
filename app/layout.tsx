@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { ClerkProvider, SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  Show,
+  UserButton,
+} from "@clerk/nextjs";
+// @ts-ignore: allow global CSS import without type declarations
 import "./globals.css";
 import { clerkModalAppearance } from "@/lib/clerk-modal-appearance";
 
@@ -16,7 +23,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Veseli Piksel",
-  description: "Premium AI studio za stilski transfer slika - pretvorite svoje fotografije u umetnost uz pomoć veštačke inteligencije.",
+  description:
+    "Premium AI studio za stilski transfer slika - pretvorite svoje fotografije u umetnost uz pomoć veštačke inteligencije.",
 };
 
 export default function RootLayout({
@@ -27,7 +35,9 @@ export default function RootLayout({
   return (
     <html lang="sr" className="dark">
       <body>
-        <ClerkProvider appearance={clerkModalAppearance}>{children}</ClerkProvider>
+        <ClerkProvider appearance={clerkModalAppearance}>
+          {children}
+        </ClerkProvider>
       </body>
     </html>
   );

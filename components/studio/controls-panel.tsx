@@ -1,7 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronDownIcon, RefreshCcwIcon, SparklesIcon, UploadIcon } from "lucide-react";
+import {
+  ChevronDownIcon,
+  RefreshCcwIcon,
+  SparklesIcon,
+  UploadIcon,
+} from "lucide-react";
 
 import {
   openAiImageModels,
@@ -50,7 +55,9 @@ export function StudioControlsPanel() {
 
       <div className="mt-5 flex flex-col gap-2 rounded-[1.35rem] border border-border/45 bg-background/25 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm font-medium text-foreground">
-          <span className="tabular-nums text-lg font-semibold text-primary">{quota.remaining}</span>{" "}
+          <span className="tabular-nums text-lg font-semibold text-primary">
+            {quota.remaining}
+          </span>{" "}
           generacija preostalo
           <span className="font-normal text-muted-foreground">
             {" "}
@@ -79,7 +86,7 @@ export function StudioControlsPanel() {
             >
               <label htmlFor={inputId} className="cursor-pointer">
                 <RefreshCcwIcon className="size-4" />
-                Change
+                Izaberi drugu
               </label>
             </Button>
           ) : null}
@@ -103,24 +110,22 @@ export function StudioControlsPanel() {
               asChild
             >
               <label htmlFor={inputId} className="cursor-pointer">
-                {file ? "Replace Image" : "Upload Image"}
+                {file ? "Promeni sliku" : "Izaberi sliku"}
               </label>
             </Button>
 
             <p className="max-w-xl text-lg text-muted-foreground">
-              {file ? file.name : "Choose a JPG, PNG, or WEBP file to begin."}
+              {file
+                ? file.name
+                : "Molim vas izaberite JPG, PNG ili WEBP format slike"}
             </p>
           </div>
         </div>
-
-        <p className="mt-5 text-sm text-muted-foreground">
-          Supports JPG, PNG, and WEBP via ImageKit upload.
-        </p>
       </div>
 
       <div className="mt-7">
         <p className="text-[1.05rem] font-semibold text-foreground sm:text-[1.2rem]">
-          2. Choose a style
+          2. Izaberi stil
         </p>
 
         <div className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
@@ -139,14 +144,18 @@ export function StudioControlsPanel() {
 
       <div className="studio-panel-inset mt-7 rounded-[1.8rem] border p-5">
         <div className="flex items-center justify-between gap-3">
-          <p className="text-[1.05rem] font-semibold text-foreground">3. OpenAI model</p>
+          <p className="text-[1.05rem] font-semibold text-foreground">
+            3. Model
+          </p>
           <SparklesIcon className="size-4 text-primary" />
         </div>
 
         <div className="mt-4 relative">
           <select
             value={selectedModel}
-            onChange={(event) => selectModel(event.target.value as OpenAiImageModel)}
+            onChange={(event) =>
+              selectModel(event.target.value as OpenAiImageModel)
+            }
             className={cn(
               buttonVariants({ variant: "outline" }),
               "h-auto w-full appearance-none rounded-[1.2rem] border-border/35 bg-background/25 px-4 py-3 pr-11 font-medium focus:border-primary",
@@ -163,19 +172,20 @@ export function StudioControlsPanel() {
         </div>
 
         <p className="mt-3 text-sm leading-6 text-muted-foreground">
-          Only image-edit-capable OpenAI models are shown here, so generation stays compatible with
-          your uploaded-image workflow.
+          Prikazuju se samo modeli koji podržavaju editovanje slika, kako bi
+          generisanje ostalo kompatibilno.
         </p>
       </div>
 
       <p className="mt-6 max-w-2xl text-xl leading-8 text-muted-foreground">
-        A first version will be generated right away. You can refine it further if needed.
+        Prva verzija će biti generisana odmah. Kasnije je možete dodatno
+        doraditi ako bude potrebno.
       </p>
 
       <GenerateButton disabled={isGenerateDisabled} isLoading={isLoading} />
 
       <p className="mt-5 text-center text-lg text-muted-foreground">
-        Styling is powered by OpenAI image edits.
+        Stilizacija je omogućena pomoću OpenAI image modela.
       </p>
 
       {error ? (

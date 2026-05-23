@@ -7,15 +7,23 @@ import { useStudioWorkbench } from "@/context/StudioWorkbenchContext";
 import { HistoryCard, PreviewFrame, ResultPreviewFrame } from "./workbench-ui";
 
 export function StudioPreviewPanel() {
-  const { history, isLoading, openHistoryPreview, resultPreview, selectedPreset, sourcePreview } =
-    useStudioWorkbench();
+  const {
+    history,
+    isLoading,
+    openHistoryPreview,
+    resultPreview,
+    selectedPreset,
+    sourcePreview,
+  } = useStudioWorkbench();
 
   return (
     <section className="studio-panel rounded-[2rem] border p-5 sm:p-7">
       <div>
-        <h2 className="text-3xl font-semibold tracking-tight text-foreground">Preview</h2>
+        <h2 className="text-3xl font-semibold tracking-tight text-foreground">
+          Pregled
+        </h2>
         <p className="mt-2 text-base text-muted-foreground sm:text-xl">
-          See the original and the generated result side by side.
+          Pogledajte originalnu i generisanu sliku jednu pored druge.
         </p>
       </div>
 
@@ -26,7 +34,7 @@ export function StudioPreviewPanel() {
               {sourcePreview ? (
                 <Image
                   src={sourcePreview}
-                  alt="Uploaded source preview"
+                  alt="Pregled otpremljene originalne slike"
                   fill
                   unoptimized
                   className="object-cover"
@@ -34,7 +42,7 @@ export function StudioPreviewPanel() {
               ) : (
                 <Image
                   src="/original.png"
-                  alt="Original example preview"
+                  alt="Primer originalne slike"
                   fill
                   className="object-cover"
                 />
@@ -43,7 +51,7 @@ export function StudioPreviewPanel() {
           </div>
 
           <div className="pl-0 md:pl-6">
-            <PreviewFrame label="Result">
+            <PreviewFrame label="Rezultat">
               <ResultPreviewFrame
                 fallbackAlt={selectedPreset.thumbnailAlt}
                 fallbackSrc={selectedPreset.thumbnailPath}
@@ -57,15 +65,19 @@ export function StudioPreviewPanel() {
 
       <div className="mt-6 flex items-start gap-3 text-lg text-muted-foreground">
         <CircleDotIcon className="mt-1 size-5 shrink-0 text-primary" />
-        <p>The result is generated directly with an OpenAI style transfer.</p>
+        <p>
+          Rezultat se generiše direktno pomoću OpenAI style transfer
+          tehnologije.
+        </p>
       </div>
 
       <div className="studio-panel-inset mt-8 rounded-[1.9rem] border p-5 sm:p-6">
         <div className="flex items-center justify-between gap-3">
           <div>
-            <h3 className="text-xl font-semibold text-foreground">History</h3>
+            <h3 className="text-xl font-semibold text-foreground">Istorija</h3>
             <p className="mt-1 text-sm text-muted-foreground">
-              Your saved generations are private to your account.
+              Vaše sačuvane generacije su privatne i dostupne samo na vašem
+              nalogu.
             </p>
           </div>
           <Button
@@ -74,19 +86,24 @@ export function StudioPreviewPanel() {
             tabIndex={-1}
             className="studio-pill pointer-events-none rounded-full px-4 py-2 text-sm"
           >
-            {history.length} saved
+            {history.length} sačuvano
           </Button>
         </div>
 
         {history.length ? (
           <div className="mt-5 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {history.map((item) => (
-              <HistoryCard key={item.id} item={item} onView={() => openHistoryPreview(item)} />
+              <HistoryCard
+                key={item.id}
+                item={item}
+                onView={() => openHistoryPreview(item)}
+              />
             ))}
           </div>
         ) : (
           <div className="mt-5 rounded-[1.4rem] border border-dashed border-border/35 bg-background/15 px-4 py-6 text-sm text-muted-foreground">
-            Your generation history will appear here after your first successful result.
+            Istorija generacija će se pojaviti ovde nakon prvog uspešno
+            generisanog rezultata.
           </div>
         )}
       </div>
