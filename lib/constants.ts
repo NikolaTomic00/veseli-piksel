@@ -99,6 +99,11 @@ export type MarketingTestimonial = {
   role: string;
 };
 
+export type FaqItem = {
+  question: string;
+  answer: string;
+};
+
 export const TESTIMONIALS: MarketingTestimonial[] = [
   {
     text: "Ovaj radni tok potpuno je promenio koliko brzo možemo pretvoriti originalne fotografije u uglađene vizuale spremne za kampanje.",
@@ -169,6 +174,49 @@ export const TESTIMONIAL_COLUMNS = [
   TESTIMONIALS.slice(0, 3),
   TESTIMONIALS.slice(3, 6),
   TESTIMONIALS.slice(6, 9),
+];
+
+export const FAQ_ITEMS: FaqItem[] = [
+  {
+    question: "Kako funkcioniše generisanje slika?",
+    answer:
+      "Otpremi svoju fotografiju, izaberi stil koji želiš i AI će automatski kreirati novu verziju slike za nekoliko sekundi.",
+  },
+  {
+    question: "Da li moram da znam kako se pišu promptovi?",
+    answer:
+      "Ne. Aplikacija je napravljena tako da dobiješ odlične rezultate bez komplikovanih AI promptova i tehničkog znanja.",
+  },
+  {
+    question: "Koliko traje generisanje slike?",
+    answer:
+      "Većina slika bude generisana za manje od jednog minuta, u zavisnosti od izabranog stila i opterećenja sistema.",
+  },
+  {
+    question: "Da li mogu da preuzmem generisane slike?",
+    answer:
+      "Da, svaku generisanu sliku možeš sačuvati i preuzeti jednim klikom direktno iz svoje galerije.",
+  },
+  {
+    question: "Koje stilove mogu da koristim?",
+    answer:
+      "Dostupni su različiti stilovi poput profesionalnih portreta, biznis fotografija, cinematic efekata, cartoon stilova i mnogih drugih.",
+  },
+  {
+    question: "Da li su moje fotografije privatne?",
+    answer:
+      "Da. Tvoje fotografije i generisani rezultati dostupni su samo tebi i ne dele se javno.",
+  },
+  {
+    question: "Da li aplikacija radi na telefonu?",
+    answer:
+      "Da, platforma je potpuno prilagođena mobilnim uređajima, tabletima i desktop računarima.",
+  },
+  {
+    question: "Da li je korišćenje besplatno?",
+    answer:
+      "Da, možeš početi potpuno besplatno i isprobati osnovne funkcije bez plaćanja.",
+  },
 ];
 
 export type HowItWorksStep = {
