@@ -100,14 +100,14 @@ export function HomeHeroSection() {
 
         <div className="home-hero-copy">
           <h1 className="hero-title home-hero-title">
-            <span className="block">Visoko-kvalitetni stilski transfer.</span>
+            <span className="block">Profesionalni AI Stilovi</span>
             <span className="home-hero-tagline">
-              Jedan otprem, slika spremna za galeriju.
+              Pretvori običnu fotografiju u moderan portret uz pažljivo kreirane AI stilove.
             </span>
           </h1>
 
           <p className="home-hero-lede">
-            Otpremite jednom, izaberite stil, dobijte uglađeni rezultat.
+            Bez podešavanja i komplikovanih promptova — fokus je samo na brzom i lepom rezultatu.
           </p>
 
           <div className="home-hero-ctas">
