@@ -76,6 +76,7 @@ export const FOOTER_QUICK_LINKS = [
   { label: "Cene", href: "#pricing" },
   { label: "Stilovi", href: "#styles" },
   { label: "Kako radi", href: "#how-it-works" },
+  { label: "Privatnost", href: "/privacy" },
   { label: "Studio", href: "/studio" },
 ] as const;
 
