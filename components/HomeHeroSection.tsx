@@ -6,6 +6,13 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { CENTER_NAV_LINKS, HERO_VIDEO_SRC } from "@/lib/constants";
 
+const HERO_BEFORE_AFTER_IMAGES = [
+  "/beforeafter1.png",
+  "/beforeafter2.png",
+  "/beforeafter3.png",
+  "/beforeafter5.png",
+] as const;
+
 export function HomeHeroSection() {
   return (
     <section className="home-hero">
@@ -28,7 +35,7 @@ export function HomeHeroSection() {
             <span className="relative mr-2 flex h-10 w-10 shrink-0 items-center justify-center overflow-visible">
               <Image
                 src="/logo.png"
-                alt="Luma Studio"
+                alt="Veseli piksel"
                 width={72}
                 height={72}
                 className="h-10 w-10 max-h-none max-w-none origin-left scale-[1.55] object-cover"
@@ -38,9 +45,6 @@ export function HomeHeroSection() {
             <div className="min-w-0">
               <span className="caps-2xs block text-sm font-semibold text-foreground">
                 Veseli Piksel
-              </span>
-              <span className="caps-xs block truncate text-xs uppercase text-muted-foreground">
-                AI stilizacija slika
               </span>
             </div>
           </Link>
@@ -125,20 +129,27 @@ export function HomeHeroSection() {
           </div>
         </div>
 
-        <div className="home-demo-wrap">
+        <div className="home-demo-wrap py-6">
           <div className="home-demo-shift">
-            <div className="hero-demo-glass home-demo-glass-shell">
-              <div className="hero-demo-glass-inner home-demo-inner">
-                <Image
-                  src="/demo.png"
-                  alt="Luma Studio workspace showing upload, curated styles, and a before-and-after preview"
-                  width={3290}
-                  height={1872}
-                  className="h-auto w-full"
-                  priority
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1100px"
-                />
-              </div>
+            <div className="home-demo-grid">
+              {HERO_BEFORE_AFTER_IMAGES.map((src, index) => (
+                <div
+                  key={src}
+                  className="hero-demo-glass home-demo-glass-shell home-demo-grid-card"
+                >
+                  <div className="hero-demo-glass-inner home-demo-inner">
+                    <Image
+                      src={src}
+                      alt={`Primer stilizacije pre i posle ${index + 1}`}
+                      width={1200}
+                      height={1200}
+                      className="home-demo-grid-image"
+                      priority={index < 2}
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
