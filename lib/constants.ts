@@ -1,10 +1,10 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  CameraIcon,
+  BadgeCheckIcon,
+  DownloadIcon,
   ImagePlusIcon,
   PaletteIcon,
   SparklesIcon,
-  Wand2Icon,
   ZapIcon,
 } from "lucide-react";
 
@@ -15,11 +15,34 @@ export const ACCEPTED_SOURCE_IMAGE_MIME_TYPES = new Set([
   "image/webp",
 ]);
 
-export const HIGHLIGHTS: { label: string; icon: LucideIcon }[] = [
-  { label: "AI Magija", icon: Wand2Icon },
-  { label: "Umetnički Stilovi", icon: SparklesIcon },
-  { label: "Trenutno", icon: ZapIcon },
-  { label: "Kreativno", icon: CameraIcon },
+export const HIGHLIGHTS: {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}[] = [
+  {
+    title: "Brza AI Generacija",
+    description:
+      "Kreiraj profesionalne slike u samo nekoliko klikova bez komplikovanih promptova.",
+    icon: ZapIcon,
+  },
+  {
+    title: "Sačuvaj i Preuzmi",
+    description:
+      "Svi tvoji rezultati ostaju sačuvani i dostupni za preuzimanje jednim klikom.",
+    icon: DownloadIcon,
+  },
+  {
+    title: "Veliki Izbor Stilova",
+    description:
+      "Biraj između modernih, umetničkih i profesionalnih stilova za svaki tip fotografije.",
+    icon: SparklesIcon,
+  },
+  {
+    title: "Besplatno za Početak",
+    description: "Pokreni generisanje potpuno besplatno i isprobaj platformu.",
+    icon: BadgeCheckIcon,
+  },
 ];
 
 export const GALLERY_STATS = [
@@ -81,63 +104,63 @@ export const TESTIMONIALS: MarketingTestimonial[] = [
     text: "Ovaj radni tok potpuno je promenio koliko brzo možemo pretvoriti originalne fotografije u uglađene vizuale spremne za kampanje.",
     image:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-    name: "Briana Patton",
+    name: "Milica Petrović",
     role: "Menadžer operacija",
   },
   {
     text: "Interfejs je jasan, rezultati su dosledni, a uvođenje u naš tim bilo je iznenađujuće bez napora.",
     image:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
-    name: "Bilal Ahmed",
+    name: "Marko Jovanović",
     role: "IT menadžer",
   },
   {
     text: "Podrška je bila promišljena od samog početka, a proizvod već deluje mnogo doteranije od većine kreativnih AI alata.",
     image:
       "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80",
-    name: "Saman Malik",
+    name: "Jelena Nikolić",
     role: "Rukovodilac korisničke podrške",
   },
   {
     text: "Čuva suštinu naših izvornih slika dok svakom rezultatu daje uzdignutiji i umetnički doteran završetak.",
     image:
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80",
-    name: "Omar Raza",
+    name: "Nikola Stanković",
     role: "Direktor",
   },
   {
     text: "Odmah smo uštedeli vreme kada je postao deo našeg radnog toka sa sadržajem, posebno za brza vizuelna istraživanja.",
     image:
       "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=200&q=80",
-    name: "Zainab Hussain",
+    name: "Ana Ilić",
     role: "Menadžer projekata",
   },
   {
     text: "Rezultati su dovoljno kvalitetni za prezentacije klijentima, što nam je pomoglo da brže pređemo od koncepta do odobrenja.",
     image:
       "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=200&q=80",
-    name: "Aliza Khan",
+    name: "Stefan Pavlović",
     role: "Poslovni analitičar",
   },
   {
     text: "Omogućio je našem timu čišći način da eksperimentiše sa više pravaca bez ugrožavanja vernosti subjekta.",
     image:
       "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?auto=format&fit=crop&w=200&q=80",
-    name: "Farhan Siddiqui",
+    name: "Teodora Marković",
     role: "Direktor marketinga",
   },
   {
     text: "Iskustvo deluje vrhunsko od početka do kraja, a naši korisnici su odmah primetili skok u kvalitetu.",
     image:
       "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80",
-    name: "Sana Sheikh",
+    name: "Marija Simić",
     role: "Menadžer prodaje",
   },
   {
     text: "Proizvod nam je pomogao da poboljšamo kvalitet i doslednost izlaza, dok smo timu ostavili prostora za brzo delovanje.",
     image:
       "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80",
-    name: "Hassan Ali",
+    name: "Luka Đorđević",
     role: "Menadžer e-trgovine",
   },
 ];

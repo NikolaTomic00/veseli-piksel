@@ -5,7 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
-import { GALLERY_IMAGES, GALLERY_STATS, HIGHLIGHTS, SHOWCASE_BG_VIDEO_SRC } from "@/lib/constants";
+import {
+  GALLERY_IMAGES,
+  HIGHLIGHTS,
+  SHOWCASE_BG_VIDEO_SRC,
+} from "@/lib/constants";
 
 export function GalleryShowcaseSection() {
   return (
@@ -38,54 +42,40 @@ export function GalleryShowcaseSection() {
           <div className="showcase-glow absolute -left-14 top-8 size-36 rounded-full blur-3xl" />
 
           <div className="relative z-10">
-            <div className="grid gap-3 sm:grid-cols-4">
+            <h2 className="mt-5 font-mono text-4xl py-5 font-normal leading-[1.02] tracking-[-0.03em] text-foreground sm:text-6xl lg:text-4xl">
+              Pretvorite{" "}
+              <span className="font-medium text-primary">fotografije</span>
+              <br />u umetnost.
+            </h2>
+            <div className="grid gap-3 sm:grid-cols-2">
               {HIGHLIGHTS.map((item) => {
                 const Icon = item.icon;
 
                 return (
                   <div
-                    key={item.label}
-                    className="rounded-[1.4rem] border border-border/60 bg-card px-4 py-5 text-center"
+                    key={item.title}
+                    className="rounded border border-border bg-card px-4 py-5 text-center sm:px-5 sm:py-6"
                   >
                     <div className="mx-auto flex size-12 items-center justify-center rounded-2xl bg-primary/14 text-primary">
                       <Icon className="size-5" />
                     </div>
-                    <p className="mt-4 text-sm tracking-wide text-muted-foreground">{item.label}</p>
+                    <p className="mt-4 text-base font-medium tracking-wide text-foreground">
+                      {item.title}
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                      {item.description}
+                    </p>
                   </div>
                 );
               })}
             </div>
-
-            <div className="mt-10">
-              <p className="caps-lg font-mono text-xs font-medium uppercase tracking-[0.24em] text-primary sm:text-sm">
-                Prikaz stilova
-              </p>
-              <h2 className="mt-5 font-mono text-5xl font-normal leading-[1.02] tracking-[-0.03em] text-foreground sm:text-6xl lg:text-7xl">
-                Pretvorite <span className="font-medium text-primary">fotografije</span>
-                <br />
-                u umetnost.
-              </h2>
-              <p className="mt-6 max-w-xl font-mono text-[0.9375rem] leading-relaxed text-muted-foreground sm:text-base">
-                Pretvorite svakodnevne portrete i trenutke u bogato stilizovane scene sa filmskom dubinom,
-                toplim karakterom i vrhunskim uredničkim završetkom.
-              </p>
-            </div>
-
-            <div className="mt-10 grid gap-4 border-y border-border/60 py-6 sm:grid-cols-3">
-              {GALLERY_STATS.map((stat) => (
-                <div key={stat.label} className="space-y-2">
-                  <p className="text-4xl font-semibold tracking-tight text-primary">{stat.value}</p>
-                  <p className="caps-xs text-sm uppercase text-muted-foreground">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8">
+            <div className="mt-10" />
+            <div className="mt-8 flex justify-center">
               <Show when="signed-out">
                 <SignUpButton mode="modal" fallbackRedirectUrl="/studio">
                   <Button
                     size="lg"
-                    className="rounded-2xl px-7 text-base shadow-lg shadow-primary/20"
+                    className="rounded-2xl px-7 text-base shadow-lg shadow-primary/20 "
                   >
                     Transformišite Fotografije
                   </Button>
