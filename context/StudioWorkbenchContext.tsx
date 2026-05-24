@@ -43,7 +43,9 @@ type StudioWorkbenchContextValue = {
   handleSubmit: (event: SubmitEvent<HTMLFormElement>) => Promise<void>;
   openHistoryPreview: (item: GenerationHistorySummaryItem) => void;
   replaceFile: (nextFile: File | null) => void;
-  selectCategory: (category: "" | "animirani-karakteri" | "profesionalna-profilna-slika") => void;
+  selectCategory: (
+    category: "" | "animirani-karakteri" | "portret" | "profesionalna-profilna-slika",
+  ) => void;
   selectModel: (model: OpenAiImageModel) => void;
   selectStyle: (styleSlug: string) => void;
 };
@@ -98,7 +100,7 @@ function useStudioWorkbenchValue({
   initialQuota,
 }: StudioWorkbenchProps): StudioWorkbenchContextValue {
   const [selectedCategory, setSelectedCategory] = useState<
-    "" | "animirani-karakteri" | "profesionalna-profilna-slika"
+    "" | "animirani-karakteri" | "portret" | "profesionalna-profilna-slika"
   >("");
   const [selectedStyle, setSelectedStyle] = useState("");
   const [selectedModel, setSelectedModel] = useState<OpenAiImageModel>(openAiImageModels[0]);

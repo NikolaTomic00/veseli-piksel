@@ -46,13 +46,17 @@ export function StudioPreviewPanel() {
                   unoptimized
                   className="object-cover"
                 />
-              ) : (
+              ) : selectedStyle ? (
                 <Image
                   src={originalPreviewPath}
                   alt="Primer originalne slike"
                   fill
                   className="object-cover"
                 />
+              ) : (
+                <div className="flex h-full items-center justify-center p-4 text-center text-sm text-muted-foreground">
+                  Izaberite stil da biste videli primer originalne slike
+                </div>
               )}
             </PreviewFrame>
           </div>

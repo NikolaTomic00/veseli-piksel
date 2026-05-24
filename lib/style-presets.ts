@@ -5,7 +5,7 @@ export type StylePreset = {
   thumbnailPath: string;
   thumbnailAlt: string;
   prompt: string;
-  category: "animirani-karakteri" | "profesionalna-profilna-slika";
+  category: "animirani-karakteri" | "profesionalna-profilna-slika" | "portret";
 };
 
 export const stylePresets: StylePreset[] = [
@@ -139,6 +139,69 @@ export const stylePresets: StylePreset[] = [
     prompt:
       "Create an ultra-realistic, formal business portrait of the person in the uploaded character reference photo. KEEP THE FACIAL FEATURES THE SAME AS IN THE ORIGINAL. The subject is seated in a modern executive chair, leaning back slightly with a relaxed back and shoulders down. One arm rests naturally on the armrest, the other hand casually placed on the thigh. They are wearing a tailored navy suit and a light blue shirt. The facial expression shows a subtle, confident, calm, and serene smile. Background: clean, modern office, out of focus. Lighting: soft studio light with subtle highlights. Camera: Phase One IQ80, 40mm. Negative prompt: no slouching, no casual posing, no face alteration, no filters, no text, no logos.",
     category: "profesionalna-profilna-slika",
+  },
+  {
+    slug: "cinematic-casual-portrait",
+    label: "Cinematic Casual",
+    description:
+      "Moderan casual portret sa mekim cinematic osvetljenjem i opuštenom atmosferom.",
+    thumbnailPath: "/cinematic-casual-portrait.png",
+    thumbnailAlt: "Primer cinematic casual portrait stila",
+    prompt:
+      "Create a casual cinematic portrait of the person in the uploaded reference image. Preserve the exact facial features, identity, hairstyle, and natural proportions from the original photo. Use soft cinematic lighting, realistic natural tones, subtle depth of field, and a relaxed modern atmosphere inspired by lifestyle photography. The subject should appear confident, approachable, and naturally styled with balanced contrast and gentle shadows. Maintain ultra-realistic skin texture, clean lighting transitions, and authentic environmental blending.",
+    category: "portret",
+  },
+  {
+    slug: "editorial-fashion-portrait",
+    label: "Editorial Fashion",
+    description:
+      "Luksuzni editorial portret inspirisan modnim magazinima i premium fotografijom.",
+    thumbnailPath: "/editorial-fashion-portrait.png",
+    thumbnailAlt: "Primer editorial fashion portrait stila",
+    prompt:
+      "Create a high-end editorial fashion portrait of the person in the uploaded reference image. Preserve the exact facial features, identity, hairstyle, and natural proportions from the original photo. The subject wears elegant modern fashion styling with refined textures and subtle luxury details. Use cinematic studio lighting, soft shadows, and a premium magazine aesthetic inspired by Vogue and GQ photography. The composition should feel sophisticated, timeless, and visually striking with realistic skin texture and professional color grading.",
+    category: "portret",
+  },
+  {
+    slug: "golden-hour-portrait",
+    label: "Golden Hour",
+    description: "Topli cinematic portret sa prirodnim sunset osvetljenjem.",
+    thumbnailPath: "/golden-hour-portrait.png",
+    thumbnailAlt: "Primer golden hour portrait stila",
+    prompt:
+      "Create a cinematic golden hour portrait of the person in the uploaded reference image. Preserve the exact facial features, identity, hairstyle, and body proportions from the original photo. Use warm sunset lighting, soft highlights, realistic skin tones, and natural outdoor depth. The atmosphere should feel calm, emotional, and cinematic with subtle lens blur and premium photography aesthetics. Keep the image ultra-realistic with balanced contrast and smooth natural lighting transitions.",
+    category: "portret",
+  },
+  {
+    slug: "dark-luxury-portrait",
+    label: "Dark Luxury",
+    description:
+      "Tamni luksuzni portret sa dramaticnim osvetljenjem i premium estetikom.",
+    thumbnailPath: "/dark-luxury-portrait.png",
+    thumbnailAlt: "Primer dark luxury portrait stila",
+    prompt:
+      "Create a dark luxury portrait of the person in the uploaded reference image. Preserve the exact facial features, identity, hairstyle, and natural proportions from the original photo. Use a deep black background, elegant shadows, sharp facial lighting, and subtle cinematic contrast. The subject should appear confident and sophisticated with realistic skin detail, premium styling, and luxury fashion photography aesthetics. Emphasize clean composition, dramatic mood, and ultra-realistic lighting.",
+    category: "portret",
+  },
+  {
+    slug: "street-style-portrait",
+    label: "Street Style",
+    description: "Moderan urbani portret sa fashion streetwear atmosferom.",
+    thumbnailPath: "/street-style-portrait.png",
+    thumbnailAlt: "Primer street style portrait stila",
+    prompt:
+      "Create a modern street-style portrait of the person in the uploaded reference image. Preserve the exact facial features, identity, hairstyle, and natural proportions from the original photo. Use an urban city environment with cinematic lighting, realistic street textures, and modern fashion photography aesthetics. The atmosphere should feel stylish, youthful, and authentic with soft depth of field, natural lighting, and subtle cinematic tones. Keep the portrait ultra-realistic and visually dynamic.",
+    category: "portret",
+  },
+  {
+    slug: "soft-beauty-portrait",
+    label: "Soft Beauty",
+    description: "Mekan elegantan beauty portret sa clean premium izgledom.",
+    thumbnailPath: "/soft-beauty-portrait.png",
+    thumbnailAlt: "Primer soft beauty portrait stila",
+    prompt:
+      "Create a soft beauty portrait of the person in the uploaded reference image. Preserve the exact facial features, identity, hairstyle, and natural proportions from the original photo. Use soft diffused lighting, subtle highlights, clean skin texture, and a calm elegant atmosphere. The portrait should feel modern, minimal, and premium with natural skin tones, smooth lighting transitions, and realistic detail. Emphasize gentle depth of field and refined beauty photography aesthetics.",
+    category: "portret",
   },
 ];
 

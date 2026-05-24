@@ -86,6 +86,7 @@ export function StudioControlsPanel() {
                 e.target.value as
                   | ""
                   | "animirani-karakteri"
+                  | "portret"
                   | "profesionalna-profilna-slika",
               );
               selectStyle("");
@@ -104,11 +105,14 @@ export function StudioControlsPanel() {
             >
               Animirani Karakteri
             </option>
+            <option value="portret" className="bg-background text-foreground">
+              Portret
+            </option>
             <option
               value="profesionalna-profilna-slika"
               className="bg-background text-foreground"
             >
-              Profesionalna Profilna Slika
+              Poslovni Portret
             </option>
           </select>
 
