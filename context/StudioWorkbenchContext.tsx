@@ -33,7 +33,7 @@ type StudioWorkbenchContextValue = {
   isLoading: boolean;
   quota: GenerationQuotaSnapshot;
   resultPreview: string | null;
-  selectedCategory: "" | "animirani-karakteri" | "profesionalna-profilna-slika";
+  selectedCategory: "" | "animirani-karakteri" | "portret" | "profesionalna-profilna-slika";
   selectedModel: OpenAiImageModel;
   selectedPreset: StylePreset;
   selectedStyle: string;
