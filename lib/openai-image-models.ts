@@ -3,6 +3,6 @@ export const openAiImageModels = ["gpt-image-1", "gpt-image-1.5"];
 export type OpenAiImageModel = (typeof openAiImageModels)[number];
 
 export const openAiImageModelLabels: Record<OpenAiImageModel, string> = {
-  "gpt-image-1": "GPT Slika 1",
-  "gpt-image-1.5": "GPT Slika 1.5",
+  "gpt-image-1": "Osnovni model",
+  "gpt-image-1.5": "Napredni model",
 };

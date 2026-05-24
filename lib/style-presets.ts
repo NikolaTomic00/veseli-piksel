@@ -12,7 +12,8 @@ export const stylePresets: StylePreset[] = [
   {
     slug: "storybook-3d",
     label: "Priča 3D",
-    description: "Meko filmsko osvetljenje sa uglađenim 3D ilustrativnim detaljima.",
+    description:
+      "Meko filmsko osvetljenje sa uglađenim 3D ilustrativnim detaljima.",
     thumbnailPath: "/storybook-example.png",
     thumbnailAlt: "Primer Priča 3D stila",
     prompt:
@@ -32,7 +33,8 @@ export const stylePresets: StylePreset[] = [
   {
     slug: "clay-render",
     label: "Glina Render",
-    description: "Ručno rađena tekstura gline sa vajarskim oblicima i toplom dubinom.",
+    description:
+      "Ručno rađena tekstura gline sa vajarskim oblicima i toplom dubinom.",
     thumbnailPath: "/clay-render-example.png",
     thumbnailAlt: "Primer Glina Render stila",
     prompt:
@@ -42,7 +44,8 @@ export const stylePresets: StylePreset[] = [
   {
     slug: "pixart",
     label: "Pixart",
-    description: "Svetli, izražajni porodično-animirani stil sa uglađenim 3D šarmom.",
+    description:
+      "Svetli, izražajni porodično-animirani stil sa uglađenim 3D šarmom.",
     thumbnailPath: "/pixart-example.png",
     thumbnailAlt: "Primer Pixart stila",
     prompt:
@@ -52,7 +55,8 @@ export const stylePresets: StylePreset[] = [
   {
     slug: "voxel-block",
     label: "Voxel Blok",
-    description: "Kockasti stil građen od blokova sa igrivim formama i pikselizovanom dubinom.",
+    description:
+      "Kockasti stil građen od blokova sa igrivim formama i pikselizovanom dubinom.",
     thumbnailPath: "/voxel-block-example.png",
     thumbnailAlt: "Primer Voxel Blok stila",
     prompt:
@@ -62,7 +66,8 @@ export const stylePresets: StylePreset[] = [
   {
     slug: "marble-sculpture",
     label: "Mermerna Skulptura",
-    description: "Elegantan portret u rezanom kamenu sa profinjenom teksturom i muzejskim osvetljenjem.",
+    description:
+      "Elegantan portret u rezanom kamenu sa profinjenom teksturom i muzejskim osvetljenjem.",
     thumbnailPath: "/marble-sculpture-example.png",
     thumbnailAlt: "Primer Mermerna Skulptura stila",
     prompt:
@@ -72,8 +77,9 @@ export const stylePresets: StylePreset[] = [
   {
     slug: "high-fashion-headshot",
     label: "High-Fashion Headshot",
-    description: "Profesionalni high-fashion portret sa snažnim kontrastom, čistim svetlom i luksuznom estetikom.",
-    thumbnailPath: "/high-fashion-headshot.png",
+    description:
+      "Profesionalni high-fashion portret sa snažnim kontrastom, čistim svetlom i luksuznom estetikom.",
+    thumbnailPath: "/high-fashion-headshot.png?v=2",
     thumbnailAlt: "Primer high-fashion headshot stila",
     prompt:
       "Create a high-fashion close-up headshot of the person in the uploaded reference image. Preserve the exact facial features, identity, pose, and overall likeness from the original photo. The subject wears a dark, professional outfit that subtly blends into a black background. The face is sharply and professionally lit with strong contrast and defined facial structure. Expression is confident with a minimal, subtle smile. Emphasize sharp eyes, clean skin detail, and luxury editorial photography aesthetics. Camera: Phase One XF, 100mm lens. Negative prompt: low contrast, noise, blur, text, watermark, distorted facial features, overexposure, underexposure.",
@@ -82,8 +88,9 @@ export const stylePresets: StylePreset[] = [
   {
     slug: "chiaroscuro-headshot",
     label: "Chiaroscuro Headshot",
-    description: "Kinematografski crno-beli portret u chiaroscuro stilu sa snažnim kontrastom, luksuznim detaljima i dramatičnim osvetljenjem.",
-    thumbnailPath: "/chiaroscuro-headshot.png",
+    description:
+      "Kinematografski crno-beli portret u chiaroscuro stilu sa snažnim kontrastom, luksuznim detaljima i dramatičnim osvetljenjem.",
+    thumbnailPath: "/chiaroscuro-headshot.png?v=2",
     thumbnailAlt: "Primer chiaroscuro headshot stila",
     prompt:
       "Create a cinematic black-and-white chiaroscuro portrait of the person in the uploaded reference image. Preserve exact facial features, identity, and pose. Use dramatic Rembrandt-style lighting with deep shadows, strong contrast, luxurious detail, and a sophisticated noir aesthetic. Emphasize sculptural facial structure, textured skin detail, and elegant shadow play. Camera: Hasselblad X2D, 90mm lens. Negative prompt: flat lighting, low contrast, color, blur, noise, text, watermark, distorted facial features.",
@@ -92,8 +99,9 @@ export const stylePresets: StylePreset[] = [
   {
     slug: "warm-light-headshot",
     label: "Warm and Light Headshot",
-    description: "Topli profesionalni portret sa prirodnim svetlom, prijatnom atmosferom i pristupačnim izrazom lica.",
-    thumbnailPath: "/warm-light-headshot.png",
+    description:
+      "Topli profesionalni portret sa prirodnim svetlom, prijatnom atmosferom i pristupačnim izrazom lica.",
+    thumbnailPath: "/warm-light-headshot.png?v=2",
     thumbnailAlt: "Primer warm and light headshot stila",
     prompt:
       "Create a warm, professional portrait of the person in the uploaded character reference photo. KEEP THE FACIAL FEATURES THE SAME AS IN THE ORIGINAL. The subject stands upright with arms relaxed at their sides and shoulders soft. A slight lean towards the camera creates approachability. A friendly smile and open, friendly eyes are essential. Attire: light blazer with a pastel-colored shirt. Background: soft, neutral interior. Lighting: natural window light. Camera: Canon EOS R5, 85mm lens. Negative prompt: no face alteration, no age changes, no weight changes, no body distortion, no caricature styling or beauty filters, no excessive skin smoothing, no blurring, no noise, no text, no logos, no watermarks, no artifacts.",
@@ -102,8 +110,9 @@ export const stylePresets: StylePreset[] = [
   {
     slug: "cinematic-headshot",
     label: "Cinematic Headshot",
-    description: "Filmski, editorialni portret sa mekim svetlom, jakim kontrastom i modernom modnom estetikom.",
-    thumbnailPath: "/cinematic-headshot.png",
+    description:
+      "Filmski, editorialni portret sa mekim svetlom, jakim kontrastom i modernom modnom estetikom.",
+    thumbnailPath: "/cinematic-headshot.png?v=2",
     thumbnailAlt: "Primer cinematic headshot stila",
     prompt:
       "A highly cinematic portrait of the same person as the reference image, preserving 100% of their facial features and natural proportions. The subject wears a white T-shirt under a blue leather jacket, rendered with realistic fabric textures and soft light reflections, creating a captivating, cinematic composition. The background features a smooth studio gradient, transitioning from dark at the top to light at the bottom, emphasizing depth and contrast around the figure. The lighting is soft, diffused, and cinematic, with balanced highlights that define the face and subtle shadows that add realism and drama. The composition is perfectly centered, conveying a sense of intimacy and emotional depth, while maintaining an elegant editorial tone.",
@@ -112,8 +121,9 @@ export const stylePresets: StylePreset[] = [
   {
     slug: "authority-headshot",
     label: "Authority Headshot",
-    description: "Soberan i profesionalan portret koji naglašava kredibilitet, mirnu sigurnost i liderski autoritet.",
-    thumbnailPath: "/authority-headshot.png",
+    description:
+      "Soberan i profesionalan portret koji naglašava kredibilitet, mirnu sigurnost i liderski autoritet.",
+    thumbnailPath: "/authority-headshot.png?v=2",
     thumbnailAlt: "Primer authority headshot stila",
     prompt:
       "Create a sober and authoritative portrait of the person from the uploaded character reference photo. KEEP THE FACIAL FEATURES THE SAME AS IN THE ORIGINAL. The subject is seated or standing, still, with a perfectly balanced body, relaxed shoulders, and a straight back. The hands are visible and composed, either resting together or relaxed in the lap. Head is slightly tilted forward, eyes steady, and the expression is slightly serious but human. Attire: navy suit, baby blue shirt, minimalist style. Background: vast, minimalist space or a soft gradient that suggests scale and responsibility. Lighting: soft, naturalistic, overcast light, no drama, no glare. Camera: Nikon Z8, 85mm, Deep Tone Control. Mood: confidence, leadership, credibility, quiet power. Negative prompt: no fashion exaggeration, no theatrical lighting, no commanding smile, no facial alteration, no noise, no text.",
@@ -122,8 +132,9 @@ export const stylePresets: StylePreset[] = [
   {
     slug: "business-headshot",
     label: "Business Headshot",
-    description: "Ultra-realističan poslovni portret u modernom kancelarijskom okruženju sa profesionalnim, samouverenim izrazom.",
-    thumbnailPath: "/business-headshot.png",
+    description:
+      "Ultra-realističan poslovni portret u modernom kancelarijskom okruženju sa profesionalnim, samouverenim izrazom.",
+    thumbnailPath: "/business-headshot.png?v=2",
     thumbnailAlt: "Primer business headshot stila",
     prompt:
       "Create an ultra-realistic, formal business portrait of the person in the uploaded character reference photo. KEEP THE FACIAL FEATURES THE SAME AS IN THE ORIGINAL. The subject is seated in a modern executive chair, leaning back slightly with a relaxed back and shoulders down. One arm rests naturally on the armrest, the other hand casually placed on the thigh. They are wearing a tailored navy suit and a light blue shirt. The facial expression shows a subtle, confident, calm, and serene smile. Background: clean, modern office, out of focus. Lighting: soft studio light with subtle highlights. Camera: Phase One IQ80, 40mm. Negative prompt: no slouching, no casual posing, no face alteration, no filters, no text, no logos.",

@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
 import Link from "next/link";
 import {
   ChevronDownIcon,
@@ -32,14 +30,13 @@ export function StudioControlsPanel() {
     isLoading,
     quota,
     replaceFile,
+    selectedCategory,
     selectedModel,
     selectedStyle,
+    selectCategory,
     selectModel,
     selectStyle,
   } = useStudioWorkbench();
-
-
-  const [selectedCategory, setSelectedCategory] = useState("");
 
   return (
     <section className="studio-panel rounded-[2rem] border p-5 sm:p-7">
@@ -76,7 +73,6 @@ export function StudioControlsPanel() {
         ) : null}
       </div>
 
-
       <div className="mt-7">
         <p className="text-[1.05rem] font-semibold text-foreground sm:text-[1.2rem]">
           1. Izaberi stil
@@ -86,7 +82,12 @@ export function StudioControlsPanel() {
           <select
             value={selectedCategory}
             onChange={(e) => {
-              setSelectedCategory(e.target.value);
+              selectCategory(
+                e.target.value as
+                  | ""
+                  | "animirani-karakteri"
+                  | "profesionalna-profilna-slika",
+              );
               selectStyle("");
             }}
             className={cn(

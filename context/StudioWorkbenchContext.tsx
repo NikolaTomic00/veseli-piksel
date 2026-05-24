@@ -12,7 +12,10 @@ import { upload } from "@imagekit/next";
 import * as Sentry from "@sentry/nextjs";
 
 import type { GenerationQuotaSnapshot } from "@/lib/generation-quota";
-import { openAiImageModels, type OpenAiImageModel } from "@/lib/openai-image-models";
+import {
+  openAiImageModels,
+  type OpenAiImageModel,
+} from "@/lib/openai-image-models";
 import { stylePresets, type StylePreset } from "@/lib/style-presets";
 import {
   GenerationHistorySummaryItem,
@@ -30,6 +33,7 @@ type StudioWorkbenchContextValue = {
   isLoading: boolean;
   quota: GenerationQuotaSnapshot;
   resultPreview: string | null;
+  selectedCategory: "" | "animirani-karakteri" | "profesionalna-profilna-slika";
   selectedModel: OpenAiImageModel;
   selectedPreset: StylePreset;
   selectedStyle: string;
@@ -39,6 +43,7 @@ type StudioWorkbenchContextValue = {
   handleSubmit: (event: SubmitEvent<HTMLFormElement>) => Promise<void>;
   openHistoryPreview: (item: GenerationHistorySummaryItem) => void;
   replaceFile: (nextFile: File | null) => void;
+  selectCategory: (category: "" | "animirani-karakteri" | "profesionalna-profilna-slika") => void;
   selectModel: (model: OpenAiImageModel) => void;
   selectStyle: (styleSlug: string) => void;
 };
@@ -92,6 +97,9 @@ function useStudioWorkbenchValue({
   initialHistory,
   initialQuota,
 }: StudioWorkbenchProps): StudioWorkbenchContextValue {
+  const [selectedCategory, setSelectedCategory] = useState<
+    "" | "animirani-karakteri" | "profesionalna-profilna-slika"
+  >("");
   const [selectedStyle, setSelectedStyle] = useState("");
   const [selectedModel, setSelectedModel] = useState<OpenAiImageModel>(openAiImageModels[0]);
   const [file, setFile] = useState<File | null>(null);
@@ -250,9 +258,11 @@ function useStudioWorkbenchValue({
     quota,
     replaceFile,
     resultPreview,
+    selectedCategory,
     selectedModel,
     selectedPreset,
     selectedStyle,
+    selectCategory: setSelectedCategory,
     selectModel: setSelectedModel,
     selectStyle: setSelectedStyle,
     sourcePreview,

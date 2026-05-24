@@ -39,3 +39,5 @@
 - **AI:** OpenAI
 - **Monitoring:** Sentry
 - **Storage/CDN:** ImageKit
+
+## MCP

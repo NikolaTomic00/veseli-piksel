@@ -12,10 +12,16 @@ export function StudioPreviewPanel() {
     isLoading,
     openHistoryPreview,
     resultPreview,
+    selectedCategory,
     selectedPreset,
     selectedStyle,
     sourcePreview,
   } = useStudioWorkbench();
+
+  const originalPreviewPath =
+    selectedCategory === "profesionalna-profilna-slika"
+      ? "/original-headshot.webp"
+      : "/original.png";
 
   return (
     <section className="studio-panel rounded-[2rem] border p-5 sm:p-7">
@@ -42,7 +48,7 @@ export function StudioPreviewPanel() {
                 />
               ) : (
                 <Image
-                  src="/original.png"
+                  src={originalPreviewPath}
                   alt="Primer originalne slike"
                   fill
                   className="object-cover"
