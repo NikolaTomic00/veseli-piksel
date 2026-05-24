@@ -15,9 +15,9 @@ export default withSentryConfig(nextConfig, {
   // For all available options, see:
   // https://www.npmjs.com/package/@sentry/webpack-plugin#options
 
-  org: "codesistency-gs",
+  org: "nikola-tomic",
 
-  project: "luma-studio",
+  project: "veseli-piksel",
 
   // Only print logs for uploading source maps in CI
   silent: !process.env.CI,
@@ -46,5 +46,5 @@ export default withSentryConfig(nextConfig, {
       // Automatically tree-shake Sentry logger statements to reduce bundle size
       removeDebugLogging: true,
     },
-  }
+  },
 });
