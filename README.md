@@ -6,8 +6,6 @@ https://veselipiksel.vercel.app
   <img src="./public/screenshotforreadme.png" alt="Veseli Piksel screenshot" width="100%" />
 </a>
 
-[Live demo](https://veselipiksel.vercel.app/)
-
 Veseli Piksel is a web app for generating stylized AI portraits and images without writing prompts or adjusting complex settings. The user uploads an image, chooses a style, previews the direction, and generates a result with one click.
 
 ## Problem
