@@ -125,7 +125,7 @@ export function ResultPreviewFrame({
         <Skeleton className="h-full w-full rounded-[1rem]" />
         <div className="mt-4 flex items-center justify-center gap-3 pb-2 text-lg text-muted-foreground">
           <Loader2Icon className="size-5 animate-spin text-primary" />
-          Generating...
+          Generiše se
         </div>
       </div>
     );
@@ -176,7 +176,7 @@ export function HistoryCard({
           className="studio-pill flex-1 rounded-full px-3 py-2 text-xs"
           onClick={onView}
         >
-          View
+          Pogledaj
         </Button>
 
         <Button
