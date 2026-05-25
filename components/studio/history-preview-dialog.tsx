@@ -3,7 +3,10 @@ import { DownloadIcon, XIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
-import { openAiImageModelLabels, type OpenAiImageModel } from "@/lib/openai-image-models";
+import {
+  openAiImageModelLabels,
+  type OpenAiImageModel,
+} from "@/lib/openai-image-models";
 import { downloadImageFromUrl, formatHistoryDate } from "@/lib/utils";
 import { GenerationHistorySummaryItem } from "@/lib/types";
 
@@ -21,7 +24,7 @@ export function HistoryPreviewDialog({
           type="button"
           variant="outline"
           size="icon"
-          aria-label="Close history preview"
+          aria-label="Zatvori pregled istorije"
           onClick={onClose}
           className="studio-pill absolute right-4 top-4 size-10 rounded-full border"
         >
@@ -33,7 +36,7 @@ export function HistoryPreviewDialog({
             <div className="relative aspect-[0.95] overflow-hidden rounded-[1.25rem] bg-background/20">
               <Image
                 src={item.resultImageUrl}
-                alt={`${item.styleLabel} large preview`}
+                alt={`${item.styleLabel} veliki pregled`}
                 fill
                 unoptimized
                 className="object-contain"
@@ -43,25 +46,33 @@ export function HistoryPreviewDialog({
 
           <div className="flex flex-col gap-5">
             <div>
-              <p className="caps-sm text-sm uppercase text-primary">History Preview</p>
+              <p className="caps-sm text-sm uppercase text-primary">
+                Pregled istorije
+              </p>
               <h3 className="mt-3 text-3xl font-semibold tracking-tight text-foreground">
                 {item.styleLabel}
               </h3>
               <p className="mt-2 text-base text-muted-foreground">
-                Saved generation details for this result.
+                Sačuvani detalji generisanja za ovaj rezultat.
               </p>
             </div>
 
             <div className="grid gap-3 rounded-[1.6rem] border border-border/30 bg-background/18 p-5">
               <HistoryMetaRow
                 label="Model"
-                value={openAiImageModelLabels[item.model as OpenAiImageModel] ?? item.model}
+                value={
+                  openAiImageModelLabels[item.model as OpenAiImageModel] ??
+                  item.model
+                }
               />
-              <HistoryMetaRow label="Generated" value={formatHistoryDate(item.createdAt)} />
-              <HistoryMetaRow label="Style" value={item.styleLabel} />
               <HistoryMetaRow
-                label="Source File"
-                value={item.originalFileName ?? "Uploaded image"}
+                label="Generisano"
+                value={formatHistoryDate(item.createdAt)}
+              />
+              <HistoryMetaRow label="Stil" value={item.styleLabel} />
+              <HistoryMetaRow
+                label="Izvorna datoteka"
+                value={item.originalFileName ?? "Otpremljena slika"}
               />
             </div>
 
@@ -70,18 +81,21 @@ export function HistoryPreviewDialog({
                 type="button"
                 className="studio-primary-action flex-1 gap-2 rounded-full px-4 py-3 text-sm font-semibold"
                 onClick={() => {
-                  void downloadImageFromUrl(item.resultImageUrl, `${item.styleSlug}-result.png`);
+                  void downloadImageFromUrl(
+                    item.resultImageUrl,
+                    `${item.styleSlug}-result.png`,
+                  );
                 }}
               >
                 <DownloadIcon className="size-4" />
-                Download Result
+                Preuzmi rezultat
               </Button>
               <Button
                 variant="outline"
                 className="studio-pill rounded-full px-4 py-3 text-sm"
                 onClick={onClose}
               >
-                Close
+                Zatvori
               </Button>
             </div>
           </div>
@@ -95,7 +109,9 @@ function HistoryMetaRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between gap-4">
       <span className="text-sm text-muted-foreground">{label}</span>
-      <span className="max-w-[14rem] truncate text-sm font-medium text-foreground">{value}</span>
+      <span className="max-w-[14rem] truncate text-sm font-medium text-foreground">
+        {value}
+      </span>
     </div>
   );
 }

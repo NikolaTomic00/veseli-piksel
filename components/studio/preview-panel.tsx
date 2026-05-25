@@ -35,7 +35,7 @@ export function StudioPreviewPanel() {
       </div>
 
       <div className="studio-panel-inset mt-7 rounded-[1.9rem] border p-5 sm:p-6">
-        <div className="grid gap-6 md:grid-cols-2 md:gap-0">
+        <div className="grid grid-cols-2 gap-6 md:grid-cols-2 md:gap-0">
           <div className="pr-0 md:border-r md:border-border/30 md:pr-6">
             <PreviewFrame label="Original">
               {sourcePreview ? (

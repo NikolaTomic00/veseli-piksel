@@ -120,7 +120,7 @@ export function StudioControlsPanel() {
         </div>
 
         {selectedCategory && (
-          <div className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {stylePresets
               .filter((preset) => preset.category === selectedCategory)
               .map((preset) => (
