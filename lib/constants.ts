@@ -66,7 +66,6 @@ export const SHOWCASE_BG_VIDEO_SRC =
 export const CENTER_NAV_LINKS = [
   { label: "Početna", href: "/" },
   { label: "Cene", href: "#pricing" },
-  { label: "Stilovi", href: "#styles", chevron: true },
   { label: "Kako radi", href: "#how-it-works" },
   { label: "Privatnost", href: "/privacy" },
   { label: "Česta pitanja", href: "#faq" },

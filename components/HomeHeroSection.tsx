@@ -77,11 +77,7 @@ export function HomeHeroSection() {
             </Show>
 
             <Show when="signed-in">
-              <Button
-                variant="outline"
-                asChild
-                className="home-btn-studio-outline"
-              >
+              <Button asChild className="home-btn-nav-primary">
                 <Link href="/studio" prefetch={false}>
                   Studio
                 </Link>

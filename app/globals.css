@@ -540,10 +540,6 @@
     @apply rounded-full px-5 py-2.5 sm:px-6 sm:py-3;
   }
 
-  .home-btn-studio-outline {
-    @apply rounded-full border-border/55 bg-background/25 px-4 py-2.5 backdrop-blur-sm hover:bg-background/40 sm:px-5;
-  }
-
   .home-hero-copy {
     @apply mx-auto flex w-full max-w-4xl flex-1 flex-col items-center justify-center pt-0 text-center;
   }
