@@ -16,8 +16,8 @@ export const BILLING_PLAN_KEYS = {
 
 export const MONTHLY_GENERATION_LIMITS = {
   free: 3,
-  pro: 75,
-  studio: 175,
+  pro: 50,
+  studio: 120,
 } as const;
 
 export function getMonthlyGenerationLimit(has: SessionAuthObject["has"]): number {
