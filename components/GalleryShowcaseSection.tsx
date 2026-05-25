@@ -102,7 +102,7 @@ export function GalleryShowcaseSection() {
           transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut" }}
           className="showcase-frame relative rounded-[2.25rem] border border-border/60 p-4 sm:p-5"
         >
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-2">
             {GALLERY_IMAGES.map((image, index) => (
               <div
                 key={image.src}

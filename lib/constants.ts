@@ -88,9 +88,9 @@ export const FEATURED_STYLES = [
 ] as const;
 
 export const WORKFLOW_STYLE_PREVIEW = [
-  FEATURED_STYLES[0],
-  FEATURED_STYLES[1],
-  FEATURED_STYLES[2],
+  "Animirani karakteri",
+  "Portret",
+  "Biznis portret",
 ] as const;
 
 export type MarketingTestimonial = {
@@ -238,13 +238,13 @@ export const HOW_IT_WORKS_STEPS: HowItWorksStep[] = [
   {
     step: "Korak 2",
     title: "Izaberite stil",
-    body: "Odaberite pažljivo odabran izgled poput Priča 3D, Anime Cel ili Glina Render bez pisanja uputstava ili podešavanja postavki.",
+    body: "Izaberite kategoriju koja najbolje odgovara fotografiji: animirani karakter, portret ili biznis portret, bez pisanja uputstava i podešavanja postavki.",
     icon: PaletteIcon,
   },
   {
     step: "Korak 3",
-    title: "Pokrenite transformaciju",
-    body: "Luma menjaju stil slike dok štiti kompoziciju, identitetske znake i male detalje koji su važni.",
+    title: "Kreirajte rezultat",
+    body: "Veseli Piksel menja stil slike dok štiti kompoziciju, identitet i sitne detalje koji fotografiju čine prepoznatljivom.",
     icon: SparklesIcon,
     featured: true,
   },

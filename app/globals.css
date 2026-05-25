@@ -147,7 +147,8 @@
 
   .hero-title {
     text-wrap: balance;
-    text-shadow: 0 10px 32px color-mix(in oklab, var(--background) 46%, transparent);
+    text-shadow: 0 10px 32px
+      color-mix(in oklab, var(--background) 46%, transparent);
   }
 
   .hero-fade {
@@ -254,7 +255,9 @@
 
   .hero-globe-svg {
     color: color-mix(in oklab, var(--primary) 72%, white 28%);
-    filter: drop-shadow(0 0 28px color-mix(in oklab, var(--primary) 55%, transparent))
+    filter: drop-shadow(
+        0 0 28px color-mix(in oklab, var(--primary) 55%, transparent)
+      )
       drop-shadow(0 0 64px color-mix(in oklab, var(--accent) 35%, transparent));
     opacity: 0.9;
   }
@@ -396,7 +399,8 @@
 
   .showcase-image-card {
     background: var(--card);
-    box-shadow: 0 22px 60px color-mix(in oklab, var(--background) 54%, transparent);
+    box-shadow: 0 22px 60px
+      color-mix(in oklab, var(--background) 54%, transparent);
   }
 
   .showcase-glow {
@@ -509,7 +513,7 @@
   }
 
   .home-hero-stack {
-    @apply relative z-30 flex w-full flex-col px-4 pb-0 pt-4 sm:px-6 lg:px-8;
+    @apply relative z-30 flex w-full flex-1 flex-col px-4 pb-0 pt-4 sm:px-6 lg:px-8;
   }
 
   .home-nav {
@@ -541,11 +545,24 @@
   }
 
   .home-hero-copy {
-    @apply mx-auto flex w-full max-w-4xl flex-1 flex-col items-center pt-10 text-center sm:pt-14 lg:pt-16;
+    @apply mx-auto flex w-full max-w-4xl flex-1 flex-col items-center justify-center pt-0 text-center;
   }
 
   .home-hero-title {
     @apply max-w-[22ch] font-sans text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:max-w-none sm:text-5xl md:text-6xl lg:text-[3.65rem] xl:text-[4.1rem];
+  }
+
+  .text-theme-orange-gradient {
+    background: linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--primary) 78%, white 22%) 0%,
+      var(--primary) 44%,
+      color-mix(in oklab, var(--accent) 82%, var(--primary) 18%) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: none;
   }
 
   .home-hero-tagline {
@@ -554,47 +571,20 @@
 
   .home-hero-lede {
     @apply mt-7 max-w-3xl text-pretty text-xl font-medium leading-snug text-foreground/95 sm:text-2xl md:text-[1.625rem] md:leading-relaxed;
-    text-shadow: 0 2px 28px color-mix(in oklab, var(--background) 52%, transparent);
+    text-shadow: 0 2px 28px
+      color-mix(in oklab, var(--background) 52%, transparent);
   }
 
   .home-hero-ctas {
-    @apply mt-9 flex w-full max-w-md flex-col gap-3 sm:max-w-none sm:flex-row sm:justify-center;
+    @apply mt-9 flex w-full max-w-md flex-col items-center gap-3 sm:max-w-none sm:flex-row sm:justify-center;
   }
 
   .home-btn-hero-primary {
-    @apply h-auto w-full rounded-full px-8 py-3.5 shadow-lg sm:w-auto;
+    @apply h-auto w-auto rounded-full px-12  py-3.5 shadow-lg;
   }
 
   .home-btn-hero-ghost {
     @apply h-auto w-full rounded-full px-8 py-3.5 text-foreground/90 hover:bg-background/30 active:translate-y-0 sm:w-auto;
-  }
-
-  .home-demo-wrap {
-    @apply relative z-30 mx-auto mt-2 w-full max-w-6xl px-0 py-8 sm:mt-6 sm:py-0;
-  }
-
-  .home-demo-shift {
-    @apply translate-y-[2%] sm:translate-y-[5%] lg:translate-y-[8%];
-  }
-
-  .home-demo-grid {
-    @apply mx-auto grid max-w-6xl grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:gap-8;
-  }
-
-  .home-demo-glass-shell {
-    @apply rounded-[1.65rem] p-3 sm:rounded-[2rem] sm:p-4 lg:rounded-[2.25rem] lg:p-6;
-  }
-
-  .home-demo-grid-card {
-    @apply h-full;
-  }
-
-  .home-demo-inner {
-    @apply overflow-hidden rounded-xl sm:rounded-2xl;
-  }
-
-  .home-demo-grid-image {
-    @apply h-auto w-full object-cover;
   }
 
   .home-nav-chevron {

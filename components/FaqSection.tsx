@@ -25,7 +25,8 @@ export function FaqSection() {
           </div>
 
           <h2 className="mt-5 text-center text-xl font-bold tracking-tighter sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
-            Sve što treba da znaš na jednom mestu
+            Sve što treba da znaš na{" "}
+            <span className="text-theme-orange-gradient">jednom mestu</span>
           </h2>
           <p className="mt-5 text-center opacity-75">
             Odgovori na najčešća pitanja o generisanju slika, stilovima, privatnosti i

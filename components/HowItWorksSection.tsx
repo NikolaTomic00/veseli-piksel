@@ -1,4 +1,5 @@
 import { ImagePlusIcon, PaletteIcon, SparklesIcon } from "lucide-react";
+import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import { GridBackground } from "@/components/GridBackground";
@@ -42,11 +43,13 @@ export function HowItWorksSection() {
               </div>
 
               <div className="relative mb-8 flex min-h-[17rem] flex-1 items-center justify-center overflow-hidden rounded-[1.75rem] border border-border/60 bg-card">
-                <div className="absolute size-56 rounded-full border border-border/25" />
-                <div className="absolute inset-8 rounded-[1.5rem] border border-dashed border-border/30" />
-                <div className="how-icon-ring relative flex size-24 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                  <ImagePlusIcon className="size-10" />
-                </div>
+                <Image
+                  src="/original.png"
+                  alt="Primer originalne slike"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                />
               </div>
 
               <p className="max-w-md text-base leading-7 text-muted-foreground">
@@ -88,7 +91,7 @@ export function HowItWorksSection() {
                         </span>
                       ) : (
                         <span className="rounded-full border border-border/60 px-2.5 py-1 text-xs text-muted-foreground">
-                          Preset
+                          Izaberi
                         </span>
                       )}
                     </div>
@@ -121,7 +124,9 @@ export function HowItWorksSection() {
               <div className="rounded-[1.75rem] border border-border/60 bg-card p-5">
                 <div className="flex flex-wrap items-center justify-between gap-4">
                   <div>
-                    <p className="caps-sm text-sm uppercase text-muted-foreground">Status motora</p>
+                    <p className="caps-sm text-sm uppercase text-muted-foreground">
+                      Obrada slike
+                    </p>
                     <p className="mt-2 text-2xl font-semibold tracking-tight text-foreground">
                       Zaštita identiteta i kompozicije
                     </p>

@@ -6,13 +6,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { CENTER_NAV_LINKS, HERO_VIDEO_SRC } from "@/lib/constants";
 
-const HERO_BEFORE_AFTER_IMAGES = [
-  "/beforeafter1.png",
-  "/beforeafter2.png",
-  "/beforeafter3.png",
-  "/beforeafter5.png",
-] as const;
-
 export function HomeHeroSection() {
   return (
     <section className="home-hero">
@@ -100,7 +93,10 @@ export function HomeHeroSection() {
 
         <div className="home-hero-copy">
           <h1 className="hero-title home-hero-title">
-            <span className="block">Profesionalni AI Stilovi</span>
+            <span className="block">
+              Profesionalni{" "}
+              <span className="text-theme-orange-gradient">AI Stilovi</span>
+            </span>
             <span className="home-hero-tagline">
               Pretvori običnu fotografiju u moderan portret uz pažljivo kreirane AI stilove.
             </span>
@@ -126,31 +122,6 @@ export function HomeHeroSection() {
                 </Link>
               </Button>
             </Show>
-          </div>
-        </div>
-
-        <div className="home-demo-wrap py-6">
-          <div className="home-demo-shift">
-            <div className="home-demo-grid">
-              {HERO_BEFORE_AFTER_IMAGES.map((src, index) => (
-                <div
-                  key={src}
-                  className="hero-demo-glass home-demo-glass-shell home-demo-grid-card"
-                >
-                  <div className="hero-demo-glass-inner home-demo-inner">
-                    <Image
-                      src={src}
-                      alt={`Primer stilizacije pre i posle ${index + 1}`}
-                      width={1200}
-                      height={1200}
-                      className="home-demo-grid-image"
-                      priority={index < 2}
-                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>
