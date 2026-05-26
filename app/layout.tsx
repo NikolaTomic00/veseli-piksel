@@ -1,25 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import {
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  Show,
-  UserButton,
-} from "@clerk/nextjs";
-// @ts-ignore: allow global CSS import without type declarations
+import { srRS } from "@clerk/localizations";
+import { ClerkProvider } from "@clerk/nextjs";
+
 import "./globals.css";
 import { clerkModalAppearance } from "@/lib/clerk-modal-appearance";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Veseli Piksel",
@@ -35,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="sr" className="dark">
       <body>
-        <ClerkProvider appearance={clerkModalAppearance}>
+        <ClerkProvider appearance={clerkModalAppearance} localization={srRS}>
           {children}
         </ClerkProvider>
       </body>
