@@ -137,7 +137,6 @@ function useStudioWorkbenchValue({
   function resetGenerationState() {
     setResult(null);
     setError(null);
-    setSelectedStyle("");
   }
 
   function replaceFile(nextFile: File | null) {

@@ -44,7 +44,7 @@ export function HowItWorksSection() {
                 </div>
 
                 <div className="grid flex-1 gap-5 sm:grid-cols-[0.9fr_1fr] sm:items-start">
-                  <div className="relative aspect-[4/5] min-h-[13rem] overflow-hidden rounded-[1.5rem] border border-border/60 bg-card">
+                  <div className="relative aspect-4/5 min-h-[13rem] overflow-hidden rounded-[1.5rem] border border-border/60 bg-card">
                     <Image
                       src="/original.png"
                       alt="Primer originalne slike"

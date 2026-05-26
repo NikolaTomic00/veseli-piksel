@@ -1,12 +1,21 @@
+"use client";
+
 import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
-import { ChevronDownIcon } from "lucide-react";
+import { ChevronDownIcon, MenuIcon, XIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { CENTER_NAV_LINKS, HERO_VIDEO_SRC } from "@/lib/constants";
 
 export function HomeHeroSection() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  function closeMobileMenu() {
+    setIsMobileMenuOpen(false);
+  }
+
   return (
     <section className="home-hero">
       <div className="hero-surface absolute inset-0 z-10" />
@@ -84,6 +93,83 @@ export function HomeHeroSection() {
               </Button>
               <UserButton />
             </Show>
+          </div>
+
+          <div className="home-mobile-nav-actions">
+            <Show when="signed-in">
+              <UserButton />
+            </Show>
+
+            <button
+              type="button"
+              className="home-mobile-menu-button"
+              aria-label={
+                isMobileMenuOpen ? "Zatvori navigaciju" : "Otvori navigaciju"
+              }
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="home-mobile-menu"
+              onClick={() => setIsMobileMenuOpen((current) => !current)}
+            >
+              <span className="sr-only">
+                {isMobileMenuOpen ? "Zatvori meni" : "Otvori meni"}
+              </span>
+              {isMobileMenuOpen ? (
+                <XIcon className="size-5" aria-hidden />
+              ) : (
+                <MenuIcon className="size-5" aria-hidden />
+              )}
+            </button>
+          </div>
+
+          <div
+            id="home-mobile-menu"
+            data-open={isMobileMenuOpen}
+            className="home-mobile-menu"
+          >
+            <div className="home-mobile-menu-links">
+              {CENTER_NAV_LINKS.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="home-mobile-menu-link"
+                  onClick={closeMobileMenu}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+
+            <div className="home-mobile-menu-actions">
+              <Show when="signed-out">
+                <SignInButton mode="modal" fallbackRedirectUrl="/studio">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="home-mobile-menu-secondary"
+                    onClick={closeMobileMenu}
+                  >
+                    Sign In
+                  </Button>
+                </SignInButton>
+                <SignUpButton mode="modal" fallbackRedirectUrl="/studio">
+                  <Button
+                    type="button"
+                    className="home-mobile-menu-primary"
+                    onClick={closeMobileMenu}
+                  >
+                    Započni
+                  </Button>
+                </SignUpButton>
+              </Show>
+
+              <Show when="signed-in">
+                <Button asChild className="home-mobile-menu-primary">
+                  <Link href="/studio" prefetch={false} onClick={closeMobileMenu}>
+                    Studio
+                  </Link>
+                </Button>
+              </Show>
+            </div>
           </div>
         </nav>
 

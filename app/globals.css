@@ -104,6 +104,10 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   * {
     @apply border-border outline-ring/50;
   }
@@ -517,7 +521,7 @@
   }
 
   .home-nav {
-    @apply mx-auto grid w-full max-w-6xl grid-cols-2 items-center gap-3 rounded-[1.75rem] px-4 py-3 sm:grid-cols-[1fr_auto_1fr] sm:px-6 sm:py-4;
+    @apply relative mx-auto grid w-full max-w-6xl grid-cols-2 items-center gap-3 rounded-[1.75rem] px-4 py-3 sm:px-6 sm:py-4;
   }
 
   .home-brand {
@@ -525,11 +529,77 @@
   }
 
   .home-nav-center {
-    @apply col-span-2 hidden items-center justify-center gap-7 border-t border-border/40 pt-3 sm:col-span-1 sm:border-t-0 sm:pt-0 md:flex;
+    @apply hidden items-center justify-center gap-7;
   }
 
   .home-nav-auth {
-    @apply flex items-center justify-end gap-2 sm:gap-3;
+    @apply hidden items-center justify-end gap-2 sm:gap-3;
+  }
+
+  .home-mobile-nav-actions {
+    @apply col-start-2 flex items-center justify-end gap-2 justify-self-end;
+  }
+
+  .home-mobile-nav-actions :where(.cl-userButtonBox, .cl-userButtonTrigger) {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .home-mobile-nav-actions :where(.cl-avatarBox) {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .home-mobile-menu-button {
+    @apply inline-flex size-11 items-center justify-center rounded-full border border-border/55 bg-background/30 text-foreground shadow-sm backdrop-blur-sm transition duration-200 hover:bg-background/45 active:scale-95;
+  }
+
+  .home-mobile-menu {
+    @apply pointer-events-none absolute left-3 right-3 top-[calc(100%+0.75rem)] z-40 overflow-hidden rounded-[1.45rem] border border-border/55 bg-background/80 p-3 opacity-0 shadow-2xl backdrop-blur-xl transition-all duration-300 ease-out;
+    max-height: 0;
+    transform: translateY(-0.5rem) scale(0.98);
+  }
+
+  .home-mobile-menu[data-open="true"] {
+    @apply pointer-events-auto opacity-100;
+    max-height: 32rem;
+    transform: translateY(0) scale(1);
+  }
+
+  .home-mobile-menu-links {
+    @apply grid gap-1;
+  }
+
+  .home-mobile-menu-link {
+    @apply flex min-h-11 items-center rounded-[1rem] px-4 text-sm font-semibold text-foreground/82 transition-colors hover:bg-muted/70 hover:text-foreground;
+  }
+
+  .home-mobile-menu-actions {
+    @apply mt-3 grid gap-2 border-t border-border/45 pt-3;
+  }
+
+  .home-mobile-menu-primary {
+    @apply h-11 w-full rounded-full;
+  }
+
+  .home-mobile-menu-secondary {
+    @apply h-11 w-full rounded-full border-border/55 bg-background/35 backdrop-blur-sm hover:bg-background/55;
+  }
+
+  @media (min-width: 768px) {
+    .home-nav {
+      grid-template-columns: 1fr auto 1fr;
+    }
+
+    .home-nav-center,
+    .home-nav-auth {
+      display: flex;
+    }
+
+    .home-mobile-nav-actions,
+    .home-mobile-menu {
+      display: none;
+    }
   }
 
   .home-btn-signin {
