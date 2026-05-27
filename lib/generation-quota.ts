@@ -20,6 +20,10 @@ export const MONTHLY_GENERATION_LIMITS = {
   studio: 120,
 } as const;
 
+export function hasSubscriptionPlan(has: SessionAuthObject["has"]): boolean {
+  return has({ plan: BILLING_PLAN_KEYS.pro }) || has({ plan: BILLING_PLAN_KEYS.studio });
+}
+
 export function getMonthlyGenerationLimit(has: SessionAuthObject["has"]): number {
   if (has({ plan: BILLING_PLAN_KEYS.studio })) {
     return MONTHLY_GENERATION_LIMITS.studio;

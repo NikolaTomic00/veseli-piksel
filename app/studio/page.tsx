@@ -1,7 +1,11 @@
 import StudioWorkbench from "@/components/studio/workbench";
 import { Button } from "@/components/ui/button";
 import { listUserGenerationSummaries } from "@/db/generations";
-import { getGenerationQuotaSnapshot, MONTHLY_GENERATION_LIMITS } from "@/lib/generation-quota";
+import {
+  getGenerationQuotaSnapshot,
+  hasSubscriptionPlan,
+  MONTHLY_GENERATION_LIMITS,
+} from "@/lib/generation-quota";
 import { UserButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import Image from "next/image";
@@ -9,6 +13,7 @@ import Link from "next/link";
 
 async function StudioPage() {
   const { userId, has } = await auth();
+  const userHasSubscriptionPlan = hasSubscriptionPlan(has);
   const initialHistory = userId ? await listUserGenerationSummaries(userId) : [];
   const initialQuota =
     userId != null
@@ -58,6 +63,7 @@ async function StudioPage() {
 
         <StudioWorkbench
           clerkUserId={userId ?? ""}
+          hasSubscriptionPlan={userHasSubscriptionPlan}
           initialHistory={initialHistory}
           initialQuota={initialQuota}
         />

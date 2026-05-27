@@ -6,10 +6,16 @@ import { StudioControlsPanel } from "./controls-panel";
 import { StudioPreviewPanel } from "./preview-panel";
 import { HistoryPreviewDialog } from "./history-preview-dialog";
 
-function StudioWorkbench({ clerkUserId, initialHistory, initialQuota }: StudioWorkbenchProps) {
+function StudioWorkbench({
+  clerkUserId,
+  hasSubscriptionPlan,
+  initialHistory,
+  initialQuota,
+}: StudioWorkbenchProps) {
   return (
     <StudioWorkbenchProvider
       clerkUserId={clerkUserId}
+      hasSubscriptionPlan={hasSubscriptionPlan}
       initialHistory={initialHistory}
       initialQuota={initialQuota}
     >

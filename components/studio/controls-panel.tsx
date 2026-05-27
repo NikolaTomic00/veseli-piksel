@@ -9,7 +9,6 @@ import {
 } from "lucide-react";
 
 import {
-  openAiImageModels,
   openAiImageModelLabels,
   type OpenAiImageModel,
 } from "@/lib/openai-image-models";
@@ -23,8 +22,10 @@ import { GenerateButton, StylePresetCard } from "./workbench-ui";
 
 export function StudioControlsPanel() {
   const {
+    availableModels,
     error,
     file,
+    hasSubscriptionPlan,
     inputId,
     isGenerateDisabled,
     isLoading,
@@ -208,7 +209,7 @@ export function StudioControlsPanel() {
               "h-auto w-full appearance-none rounded-[1.2rem] border-border/35 bg-background/25 px-4 py-3 pr-11 font-medium focus:border-primary",
             )}
           >
-            {openAiImageModels.map((model) => (
+            {availableModels.map((model) => (
               <option key={model} value={model}>
                 {openAiImageModelLabels[model]}
               </option>
@@ -219,9 +220,16 @@ export function StudioControlsPanel() {
         </div>
 
         <p className="mt-3 text-sm leading-6 text-muted-foreground">
-          Prikazuju se samo modeli koji podržavaju editovanje slika, kako bi
-          generisanje ostalo kompatibilno.
+          {hasSubscriptionPlan
+            ? "Dostupni su osnovni i napredni model."
+            : "Free plan koristi osnovni model. Napredni model je dostupan u subscription planu."}
         </p>
+
+        {!hasSubscriptionPlan ? (
+          <Button className="mt-3 text-sm font-medium" asChild>
+            <Link href="/#pricing">Otključaj napredni model</Link>
+          </Button>
+        ) : null}
       </div>
 
       <p className="mt-6 max-w-2xl text-xl leading-8 text-muted-foreground">

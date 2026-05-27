@@ -28,6 +28,7 @@ export type GenerationResult = {
 
 export type StudioWorkbenchProps = {
   clerkUserId: string;
+  hasSubscriptionPlan: boolean;
   initialHistory: GenerationHistorySummaryItem[];
   initialQuota: GenerationQuotaSnapshot;
 };

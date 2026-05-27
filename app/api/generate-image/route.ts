@@ -1,11 +1,12 @@
 import { countGenerationsSince, createGeneration, utcMonthStart } from "@/db/generations";
-import { getMonthlyGenerationLimit } from "@/lib/generation-quota";
+import { getMonthlyGenerationLimit, hasSubscriptionPlan } from "@/lib/generation-quota";
 import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import sharp from "sharp";
 
 import * as Sentry from "@sentry/nextjs";
 import { openaiProvider } from "@/lib/openai";
+import { isOpenAiImageModel, isSubscriptionOpenAiImageModel } from "@/lib/openai-image-models";
 import { ACCEPTED_SOURCE_IMAGE_MIME_TYPES } from "@/lib/constants";
 import { getStylePreset } from "@/lib/style-presets";
 
@@ -98,6 +99,20 @@ export async function POST(request: Request) {
 
   if (!model) {
     return NextResponse.json({ error: "Please choose a model." }, { status: 400 });
+  }
+
+  if (!isOpenAiImageModel(model)) {
+    return NextResponse.json({ error: "Unknown model." }, { status: 400 });
+  }
+
+  if (isSubscriptionOpenAiImageModel(model) && !hasSubscriptionPlan(has)) {
+    return NextResponse.json(
+      {
+        error: "Napredni model je dostupan samo u subscription planu.",
+        code: "MODEL_REQUIRES_SUBSCRIPTION" as const,
+      },
+      { status: 403 },
+    );
   }
 
   const preset = getStylePreset(styleSlug);

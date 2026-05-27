@@ -6,6 +6,7 @@ import {
   createContext,
   useContext,
   useEffect,
+  useMemo,
   useState,
 } from "react";
 import { upload } from "@imagekit/next";
@@ -13,6 +14,7 @@ import * as Sentry from "@sentry/nextjs";
 
 import type { GenerationQuotaSnapshot } from "@/lib/generation-quota";
 import {
+  getAvailableOpenAiImageModels,
   openAiImageModels,
   type OpenAiImageModel,
 } from "@/lib/openai-image-models";
@@ -26,7 +28,9 @@ import {
 
 type StudioWorkbenchContextValue = {
   error: string | null;
+  availableModels: readonly OpenAiImageModel[];
   file: File | null;
+  hasSubscriptionPlan: boolean;
   history: GenerationHistorySummaryItem[];
   inputId: string;
   isGenerateDisabled: boolean;
@@ -74,10 +78,16 @@ async function getImageKitAuthParams() {
 export function StudioWorkbenchProvider({
   children,
   clerkUserId,
+  hasSubscriptionPlan,
   initialHistory,
   initialQuota,
 }: PropsWithChildren<StudioWorkbenchProps>) {
-  const value = useStudioWorkbenchValue({ clerkUserId, initialHistory, initialQuota });
+  const value = useStudioWorkbenchValue({
+    clerkUserId,
+    hasSubscriptionPlan,
+    initialHistory,
+    initialQuota,
+  });
 
   return (
     <StudioWorkbenchContext.Provider value={value}>{children}</StudioWorkbenchContext.Provider>
@@ -96,6 +106,7 @@ export function useStudioWorkbench() {
 
 function useStudioWorkbenchValue({
   clerkUserId,
+  hasSubscriptionPlan,
   initialHistory,
   initialQuota,
 }: StudioWorkbenchProps): StudioWorkbenchContextValue {
@@ -115,6 +126,10 @@ function useStudioWorkbenchValue({
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [quota, setQuota] = useState<GenerationQuotaSnapshot>(initialQuota);
+  const availableModels = useMemo(
+    () => getAvailableOpenAiImageModels(hasSubscriptionPlan),
+    [hasSubscriptionPlan],
+  );
 
   // this will create a preview of the image when the file is uploaded
   useEffect(() => {
@@ -152,6 +167,15 @@ function useStudioWorkbenchValue({
 
   function closeHistoryPreview() {
     setViewedHistoryItem(null);
+  }
+
+  function selectModel(model: OpenAiImageModel) {
+    if (availableModels.includes(model)) {
+      setSelectedModel(model);
+      return;
+    }
+
+    setSelectedModel(openAiImageModels[0]);
   }
 
   async function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
@@ -247,10 +271,12 @@ function useStudioWorkbenchValue({
   }
 
   return {
+    availableModels,
     closeHistoryPreview,
     error,
     file,
     handleSubmit,
+    hasSubscriptionPlan,
     history,
     inputId: uploadInputId,
     isGenerateDisabled,
@@ -264,7 +290,7 @@ function useStudioWorkbenchValue({
     selectedPreset,
     selectedStyle,
     selectCategory: setSelectedCategory,
-    selectModel: setSelectedModel,
+    selectModel,
     selectStyle: setSelectedStyle,
     sourcePreview,
     viewedHistoryItem,
