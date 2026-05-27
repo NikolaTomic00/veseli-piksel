@@ -157,7 +157,7 @@ export function HowItWorksSection() {
                     tabIndex={-1}
                     type="button"
                   >
-                    AI renderovanje
+                    U procesu
                   </Button>
                 </div>
 

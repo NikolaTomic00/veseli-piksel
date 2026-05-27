@@ -97,7 +97,15 @@ export function HomeHeroSection() {
 
           <div className="home-mobile-nav-actions">
             <Show when="signed-in">
-              <UserButton />
+              <UserButton
+                appearance={{
+                  elements: {
+                    avatarBox: "home-mobile-user-avatar",
+                    userButtonBox: "home-mobile-user-button-box",
+                    userButtonTrigger: "home-mobile-user-button-trigger",
+                  },
+                }}
+              />
             </Show>
 
             <button

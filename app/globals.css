@@ -540,14 +540,35 @@
     @apply col-start-2 flex items-center justify-end gap-2 justify-self-end;
   }
 
-  .home-mobile-nav-actions :where(.cl-userButtonBox, .cl-userButtonTrigger) {
-    width: 2.75rem;
-    height: 2.75rem;
+  .home-mobile-user-button-box,
+  .home-mobile-user-button-trigger,
+  .home-mobile-user-avatar {
+    width: 2.75rem !important;
+    height: 2.75rem !important;
   }
 
-  .home-mobile-nav-actions :where(.cl-avatarBox) {
-    width: 2.75rem;
-    height: 2.75rem;
+  .home-mobile-user-button-trigger {
+    border: 1px solid transparent !important;
+    border-radius: 9999px !important;
+    box-sizing: border-box;
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  .home-mobile-user-button-trigger:hover,
+  .home-mobile-user-button-trigger:focus,
+  .home-mobile-user-button-trigger:focus-visible,
+  .home-mobile-user-button-trigger[aria-expanded="true"] {
+    border-color: var(--primary) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .home-mobile-user-button-trigger::before,
+  .home-mobile-user-button-trigger::after {
+    display: none !important;
   }
 
   .home-mobile-menu-button {
